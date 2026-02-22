@@ -11,7 +11,7 @@ It enables teams to track agent performance, monitor call outcomes, and analyze 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/memox-dashboard.git
+git clone https://github.com/Muhammad-Anas785/memox-dashboard.git
 cd memox-dashboard
 ```
 
