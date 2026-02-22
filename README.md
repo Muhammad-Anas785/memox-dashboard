@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memox Voice Agent Monitoring Dashboard
 
-## Getting Started
+This project is a responsive monitoring dashboard built for AI-powered voice agents used in B2B sales.
 
-First, run the development server:
+It enables teams to track agent performance, monitor call outcomes, and analyze conversations in real time.
+
+---
+
+## 🛠 Setup Instructions
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/memox-dashboard.git
+cd memox-dashboard
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open in browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧱 Architectural Decisions
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Next.js App Router
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The App Router was used instead of the Pages Router to enable:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Better layout management
+* Server & Client component separation
+* Scalable routing for dashboards
 
-## Deploy on Vercel
+This allowed clean structuring for:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* `/dashboard`
+* `/agents`
+* `/agents/[id]`
+* `/calls`
+* `/calls/[id]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 2. Server vs Client Components
+
+Server Components were used for:
+
+* Data-driven pages (Agent Detail, Call Detail)
+* Rendering performance
+
+Client Components were used for:
+
+* Filters
+* Search
+* UI interactivity
+
+This improves performance and keeps the UI responsive.
+
+---
+
+### 3. Component-Based UI
+
+Reusable UI components were created:
+
+* KPI Cards
+* Status Badges
+* Sentiment Indicators
+
+This keeps the design consistent and maintainable.
+
+---
+
+### 4. Route Groups for Layout
+
+A dashboard layout was implemented using route groups to provide:
+
+* Sidebar navigation
+* Top navigation
+* Consistent SaaS-style UI
+
+This avoids duplication and improves scalability.
+
+---
+
+### 5. Responsive Design Strategy
+
+Tailwind’s mobile-first grid system was used to ensure:
+
+* Clean mobile stacking
+* Multi-column desktop layouts
+* Consistent spacing and hierarchy
+
+---
+
+## 📊 Pages Overview
+
+| Page           | Purpose                    |
+| -------------- | -------------------------- |
+| `/dashboard`   | KPI overview               |
+| `/agents`      | Agent listing with filters |
+| `/agents/[id]` | Agent performance details  |
+| `/calls`       | Call history with filters  |
+| `/calls/[id]`  | Call analytics             |
+
+---
+
+## 🚀 What I’d Improve With More Time
+
+
+### 1. Charts & Visual Analytics
+
+Add performance graphs using libraries like Recharts.
+
+### 2. Role-Based Access
+
+Support admin vs manager dashboards.
+
+### 3. API Integration
+
+Replace mock data with real backend APIs.
+
+### 4. Dark Mode
+
+Enhance usability for long monitoring sessions.
+
+---
+
+## 🎯 Goal
+
+The goal of this project was to create a clean, scalable, and responsive monitoring dashboard that reflects how modern SaaS analytics platforms are structured.
